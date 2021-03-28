@@ -53,7 +53,7 @@
                         </a></dd>
                         <dd><a href="javascript:;" name="borrow"
                                title="借阅历史"
-                               content="./userHistory.jsp" id="2">
+                               content="./borrowHistory.jsp" id="2">
                             借阅历史</a></dd>
                         <dd><a href="javascript:;" name="borrow"
                                title="在借图书"
