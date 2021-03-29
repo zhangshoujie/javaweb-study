@@ -8,9 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+/**
+ * @ClassName AdminLoginServlet
+ * @Description TODO
+ * @Author zhangshoujie
+ * @Date 2021/3/29
+ **/
+@WebServlet(name = "AdminLoginServlet", urlPatterns = "/admin/login")
+public class AdminLoginServlet extends HttpServlet {
 
     private LoginService loginService = new LoginService();
 
@@ -27,13 +34,12 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        String result = loginService.login(username, password,
+        String result = loginService.adminLogin(username, password,
                 req.getSession());
         if ("1".equals(result)) {
-            resp.sendRedirect("/main.jsp");
+            resp.sendRedirect("/admin/main.jsp");
         } else {
-            req.getRequestDispatcher("/index.jsp?message=" + result).forward(req, resp);
+            req.getRequestDispatcher("/index.jsp?message=" + URLEncoder.encode(result, "utf-8")).forward(req, resp);
         }
     }
 }
-
