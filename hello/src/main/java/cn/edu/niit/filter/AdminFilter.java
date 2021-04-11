@@ -4,14 +4,13 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-/**
- * @ClassName AdminFilter
- * @Description TODO
- * @Author zhangshoujie
- * @Date 2021/3/29
- **/
 @WebFilter(filterName = "AdminFilter", urlPatterns = "/login")
 public class AdminFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
     @Override
     public void doFilter(ServletRequest req,
                          ServletResponse resp,
@@ -27,5 +26,10 @@ public class AdminFilter implements Filter {
             req.getRequestDispatcher("/login"
             ).forward(req, resp);
         }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

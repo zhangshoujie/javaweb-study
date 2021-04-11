@@ -13,17 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @ClassName FromAjaxservlet
- * @Description TODO
- * @Author zhangshoujie
- * @Date 2021/3/29
- **/
 @WebServlet("/FromAjaxservlet")
 public class FromAjaxservlet extends HttpServlet {
 
 
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("utf-8");
         try {

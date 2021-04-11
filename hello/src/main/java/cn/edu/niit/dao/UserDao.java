@@ -7,7 +7,7 @@ import cn.edu.niit.javabean.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDao {
+public class UserDao {
 
     public User selectOne(String username) {
         User user = null;
@@ -21,7 +21,12 @@ public class LoginDao {
             while (resultSet.next()) {
                 user = new User(resultSet.getString("username"),
                         resultSet.getString("password"),
-                        resultSet.getString("reader"));
+                        resultSet.getString("reader"),
+                        resultSet.getString("header"),
+                        resultSet.getString("cellphone"),
+                        resultSet.getString("email"),
+                        resultSet.getString("describe"),
+                        resultSet.getBoolean("sex"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,4 +54,17 @@ public class LoginDao {
 
         return admin;
     }
+
+    public int addUser(User register) {
+        String sql = "INSERT IGNORE INTO `borrow_card` (username," +
+                "`password`, reader) \n" +
+                "SELECT ?,?,? WHERE NOT EXISTS (\n" +
+                "SELECT 1 FROM borrow_card WHERE `username`=?);";
+        return JDBCUtil.getInstance().executeUpdate(sql,
+                new Object[]{register.getUsername(),
+                        register.getPassword(),
+                        register.getReader(),
+                        register.getUsername()});
+    }
+
 }

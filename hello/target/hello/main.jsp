@@ -1,5 +1,4 @@
 <%@ page import="cn.edu.niit.javabean.User" %>
-<%@ page import="cn.edu.niit.javabean.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -28,11 +27,11 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="<%=user.getUsername()%>"
+                    <img src="<%=user.getHeader()%>"
                          class="layui-nav-img">
                     <%=user.getReader()%>
                 </a>
-                <dl class="layui-nav-child">
+                <dl class="layui-nav-child" style="height: fit-content">
                     <dd><a href="javascript:;" name="borrow"
                            title="个人信息"
                            content="./personalInfo.jsp" id="4">个人信息

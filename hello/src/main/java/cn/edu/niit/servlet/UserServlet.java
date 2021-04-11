@@ -1,6 +1,6 @@
 package cn.edu.niit.servlet;
 
-import cn.edu.niit.service.LoginService;
+import cn.edu.niit.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
-    private LoginService loginService = new LoginService();
+    private UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req,
@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        String result = loginService.login(username, password,
+        String result = userService.login(username, password,
                 req.getSession());
         if ("1".equals(result)) {
             resp.sendRedirect("/main.jsp");
@@ -36,4 +36,3 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
-
