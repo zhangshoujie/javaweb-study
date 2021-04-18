@@ -121,12 +121,37 @@
     layui.use(['element'], function () {
         var element = layui.element;
         var $ = layui.$;
+        let tabs = JSON.parse(sessionStorage.getItem("tabs"));
+        console.log(tabs);
+        if (tabs != null){
+            for (var key of tabs) {
+                console.log("li[lay-id=" + key +
+                    "]");
+                element.tabAdd("tabTemp", {
+                    title: $("a[id=" + key +
+                        "]").attr("title"),
+                    content:
+                        "<iframe style='height: 100%;width: 100%' src='" +
+                        $("a[id=" + key +
+                            "]").attr("content") + "' class='frame' frameborder='0'></iframe>",
+                    id: $("a[id=" + key +
+                        "]").attr("id")
+                });
+            }
+        }
+
         $("[name=borrow]").click(function () {
             //获取当前项的id和content
             var id = $(this).attr("id");
             var content = $(this).attr("content");
+
             //判断标签是否存在
             if ($("li[lay-id=" + id + "]").length == 0) {
+                if (tabs == null){
+                    tabs = new Array();
+                }
+                tabs.push(id);
+                sessionStorage.setItem("tabs", JSON.stringify(tabs));
                 //添加新标签
                 element.tabAdd("tabTemp", {
                     title: $(this).attr("title"),
@@ -138,6 +163,13 @@
             }
             //切换标签
             element.tabChange("tabTemp", id);
+        });
+        element.on('tabDelete(tabTemp)', function(data){
+            console.log("索引：");
+            console.log(data.index);
+            tabs.splice(data.index, 1);
+            console.log("删除后："+tabs);
+            sessionStorage.setItem("tabs", JSON.stringify(tabs));
         });
     });
 </script>
