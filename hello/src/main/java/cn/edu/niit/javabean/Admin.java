@@ -4,12 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @ClassName Admin
- * @Description TODO
- * @Author zhangshoujie
- * @Date 2021/3/29
- **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

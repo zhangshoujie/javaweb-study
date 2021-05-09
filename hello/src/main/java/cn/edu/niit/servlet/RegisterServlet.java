@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-
 /**
- * @ClassName RegisterServlet
- * @Description TODO
- * @Author zhangshoujie
- * @Date 2021/3/29
+ * @program: Library
+ * @ClassName: RegisterServlet
+ * @description: Test
+ * @author: Cai
+ * @create: 2021-03-23 01:16
  **/
 @WebServlet(name = "RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -58,3 +58,4 @@ public class RegisterServlet extends HttpServlet {
         }
     }
 }
+
