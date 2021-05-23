@@ -71,6 +71,7 @@ public class PersonalInfoServlet extends HttpServlet {
         //resp.getWriter().print("<script>location.reload()" +
         //        "</script>");
         //转向会原页面，刷新页面
+        req.setAttribute("flush",true);
         req.getRequestDispatcher("/personalInfo.jsp?message=" + message).forward(req, resp);
     }
 }
