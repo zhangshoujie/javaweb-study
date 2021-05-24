@@ -53,7 +53,8 @@ public class PersonalInfoServlet extends HttpServlet {
                 //Part part = parts[0];//从上传的文件集合中获取Part对象
                 Part part = req.getPart("avatar");
                 //获取文件名
-                String fileName = part.getHeader("content-Disposition");
+                String header = part.getHeader("Content-Disposition");
+                String fileName = header.substring(header.indexOf("filename=\"") + 10, header.lastIndexOf("\""));
                 //截取不同类型的文件（需自行判断）
                 String[] fileNames = fileName.split("\\.");
                 String uuid = UUID.randomUUID().toString();
