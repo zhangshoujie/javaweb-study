@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<web-app version="3.0" metadata-complete="false"
-         xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app version="5.0" metadata-complete="false"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>SearchBooksServlet</servlet-name>
@@ -13,4 +13,16 @@
         <servlet-name>SearchBooksServlet</servlet-name>
         <url-pattern>/book/search</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>StudentID</param-name>
+        <param-value>2002932327</param-value>
+    </context-param>
+    <context-param>
+        <param-name>packageName</param-name>
+        <param-value>cn.edu.niit</param-value>
+    </context-param>
+    <listener>
+        <listener-class>cn.edu.niit.monitor.ApplicationListener</listener-class>
+    </listener>
 </web-app>

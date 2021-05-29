@@ -30,7 +30,7 @@
             next: function () {
                 return a.next ? '<a href="javascript:;" class="layui-laypage-next' + (a.curr == a.pages ? " " + r : "") + '" data-page="' + (a.curr + 1) + '">' + a.next + "</a>" : ""
             }(),
-            count: '<span class="layui-laypage-count">&#x5171; ' + a.count + "  &#x9875;</span>",
+            count: '<span class="layui-laypage-count">&#x5171; ' + a.count + " &#x6761;</span>",
             limit: function () {
                 var e = ['<span class="layui-laypage-limits"><select lay-ignore>'];
                 return layui.each(a.limits, function (t, n) {

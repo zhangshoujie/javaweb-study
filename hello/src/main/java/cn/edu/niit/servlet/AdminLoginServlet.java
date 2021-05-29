@@ -30,8 +30,8 @@ public class AdminLoginServlet extends HttpServlet {
 
         String result = userService.adminLogin(username, password,
                 req.getSession());
-        if ("1".equals(result)) {
-            resp.sendRedirect("/admin/main.jsp");
+        if ("0".equals(result)) {
+            resp.sendRedirect("/admin/admin.jsp");
         } else {
             req.getRequestDispatcher("/index.jsp?message=" + URLEncoder.encode(result, "utf-8")).forward(req, resp);
         }

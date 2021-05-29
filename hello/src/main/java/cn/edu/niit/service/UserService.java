@@ -36,7 +36,7 @@ public class UserService {
             if (password.equals(admin.getPassword())) {
                 session.setAttribute("admin", admin);
                 session.setAttribute("isLogin", true);
-                return "1";
+                return "0";
             } else {
                 return "密码错误";
             }
