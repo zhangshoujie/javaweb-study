@@ -52,9 +52,9 @@
 					<a href="javascript:;">图书服务</a>
 					<dl class="layui-nav-child">
 						<dd><a href="javascript:;" name="borrow"
-							   title="查询图书"
-							   content="./searchBooks.jsp" id="2"
-						>查询图书
+							   title="借阅图书"
+							   content="./borrow.jsp" id="2"
+						>借阅图书
 						</a></dd>
 						<dd><a href="javascript:;" name="borrow"
 							   title="借阅历史"
